@@ -1,6 +1,8 @@
 package ch.walica.licznikpunktw;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements PersonsAdapter.On
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         adapter = new PersonsAdapter(persons, this);
+        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
         recyclerView.setAdapter(adapter);
 
     }
@@ -58,4 +61,17 @@ public class MainActivity extends AppCompatActivity implements PersonsAdapter.On
         persons.get(position).setCount(persons.get(position).getCount() + credit);
         adapter.notifyItemChanged(position);
     }
+
+    ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            persons.remove(viewHolder.getAdapterPosition());
+            adapter.notifyDataSetChanged();
+        }
+    };
 }
