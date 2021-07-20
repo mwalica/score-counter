@@ -1,0 +1,2 @@
+rootProject.name = "Licznik punktów"
+include ':app'
