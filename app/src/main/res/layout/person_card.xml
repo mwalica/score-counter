@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@color/blue_800"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:src="@drawable/ic_round_remove_circle_24"
-            app:tint="@color/blue_200"
+            app:tint="@color/teal_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/etCredit"
             app:layout_constraintTop_toTopOf="parent" />
@@ -67,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_round_add_circle_24"
-            app:tint="@color/green_600"
+            app:tint="@color/teal_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
