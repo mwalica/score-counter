@@ -1,5 +1,7 @@
 package ch.walica.licznikpunktw;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,6 +76,9 @@ public class PersonsAdapter extends RecyclerView.Adapter<PersonsAdapter.MyViewHo
         void bind(Person person) {
             String count = Integer.toString(person.getCount());
             tvName.setText(person.getName());
+            if(person.getCount() > 49) {
+                tvCount.setTextColor(0xFF00A323);
+            }
             tvCount.setText(count);
 
 
